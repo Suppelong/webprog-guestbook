@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// ✅ STEP 1: Define the API URL
+//  STEP 1: Define the API URL
 // If running on Vercel, it uses the environment variable.
 // If running locally, it falls back to localhost:3000.
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
@@ -13,7 +13,6 @@ const Guestbook = () => {
   // Fetch all posts from your NestJS Backend
   const fetchPosts = async () => {
     try {
-      // ✅ STEP 2: Use the variable here
       const response = await axios.get(`${API_URL}/guestbook`);
       setPosts(response.data);
     } catch (error) {
@@ -29,7 +28,6 @@ const Guestbook = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ✅ STEP 3: Use the variable here too
       await axios.post(`${API_URL}/guestbook`, formData);
       setFormData({ name: '', message: '' }); // Reset form
       fetchPosts(); // Reload the list
